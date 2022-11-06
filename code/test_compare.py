@@ -43,9 +43,8 @@ def compare_models(y_true: DatasetType,
                    weights : dict = {},
                    minimum_champion_score : str = 0 ):
     """
-    Perform a comparison between models base on their batch prediction (compare thier y_pred to the actual y_true).
-    Calculate for each model in a batch predict result for each metrics and selecting the best model by the maximum average result.
-    Can compare between previus runs by Comparison ID and calculate the average result for each model
+    Preform Metrics calculation for batch ID models, Calculate AVG score with Batch ID result and the prior runs results (result with the same comparsion_id and with diffrrent batch_id).
+    For each models and then selecting the champion model (Model with the best AVG score).
 
     :param context:                  MLRun context.
     :param y_true:                   Actual y_true data support types (mlrun.DataItem, list, dict, pd.DataFrame, pd.Series, np.ndarray)
